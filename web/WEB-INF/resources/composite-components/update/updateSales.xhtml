@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:composite = "http://java.sun.com/jsf/composite">
+<composite:interface>
+</composite:interface>
+<composite:implementation>
+    <f:view>
+        <h:form>
+            <h:panelGrid columns = "2">
+                <h:outputLabel>ID: </h:outputLabel>
+                <h:selectOneMenu value="#{salesBean.sales.salesId}">
+                    <f:selectItems value="#{salesBean.selectIds}" />
+                </h:selectOneMenu>
+                <h:outputLabel>Id товару: </h:outputLabel>
+                <h:inputText value="#{salesBean.sales.productId}"/>
+                <h:outputLabel>Id продавця: </h:outputLabel>
+                <h:inputText value="#{salesBean.sales.sellerId}"/>
+                <h:outputLabel>Кількість товарів: </h:outputLabel>
+                <h:inputText value="#{salesBean.sales.countOfProducts}"/>
+            </h:panelGrid><br/>
+            <h:commandButton action = "#{salesBean.updateSales(salesBean.sales)}"
+                             value = "Редагувати"/>
+        </h:form>
+    </f:view>
+</composite:implementation>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:composite = "http://java.sun.com/jsf/composite">
+<composite:interface>
+</composite:interface>
+<composite:implementation>
+<f:view>
+    <div style="border: 2px">
+    <h:form>
+        <h:panelGrid columns = "2">
+            <h:outputLabel>ID: </h:outputLabel>
+            <h:selectOneMenu value="#{sellerBean.seller.sellerId}">
+                <f:selectItems value="#{sellerBean.selectIds}" />
+            </h:selectOneMenu>
+            <h:outputLabel>ФІО: </h:outputLabel>
+            <h:inputText value="#{sellerBean.seller.sellerName}"/>
+        </h:panelGrid><br/>
+        <h:commandButton action = "#{sellerBean.updateSeller(sellerBean.seller)}"
+                         value = "Редагувати"/>
+    </h:form>
+    </div>
+</f:view>
+</composite:implementation>
+</html>

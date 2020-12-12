@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:composite = "http://java.sun.com/jsf/composite">
+<composite:interface>
+</composite:interface>
+
+<composite:implementation>
+    <h2>Продаж</h2>
+    <h:form>
+        <h:dataTable value="#{salesBean.salesList}" var="sales" border="2">
+            <h:column>
+                <f:facet name="header">Id</f:facet>
+                #{sales.salesId}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Id товара</f:facet>
+                #{sales.productId}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Id продавця</f:facet>
+                #{sales.sellerId}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Кількість продукті</f:facet>
+                #{sales.countOfProducts}
+            </h:column>
+            <h:column>
+                <h:commandLink action="#{salesBean.deleteSales(sales.salesId)}" value="Видалити"/>
+            </h:column>
+        </h:dataTable>
+    </h:form>
+
+</composite:implementation>
+</html>
